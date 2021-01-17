@@ -61,6 +61,8 @@ int main(int argc, const char **argv)
     std::cout<<"Taking User Inputs...\n";
     std::cout<<"Please enter : start_x, start_y, end_x, and end_y in order\n";
     std::cin>>start_x>>start_y>>end_x>>end_y;
+
+    //Instead of taking just user input, making an arguments says that each coordinate should be ranged through 1 - 100.
 ßß
     // Build Model.
     RouteModel model{osm_data};
