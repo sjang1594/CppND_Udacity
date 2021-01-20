@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <io2d.h>
+#include <limits>
 #include "route_model.h"
 #include "render.h"
 #include "route_planner.h"
@@ -53,13 +54,59 @@ int main(int argc, const char **argv)
     }
     
     //Declare floats 'start_x', 'start_y', 'end_x', 'end_y'
-    float start_x, start_y, end_x, end_y;
-    std::cout<<"Taking User Inputs...\n";
-    std::cout<<"Please enter : start_x, start_y, end_x, and end_y in order\n";
-    std::cin>>start_x>>start_y>>end_x>>end_y;
+    float start_x = 0.0f;
+    float start_y = 0.0f;
+    float end_x = 0.0f;
+    float end_y = 0.0f;
 
-    //Instead of taking just user input, making an arguments says that each coordinate should be ranged through 1 - 100.
-ßß
+    std::cout <<" Taking User Inputs...\n";
+    std::cout <<" Please enter : start_x, start_y, end_x, and end_y in order\n";
+    std::cout <<" Input the start_x \n";
+    std::cin >> start_x;
+    
+    //if start_x is the range below 0 and more than 100, take the input again.
+    while( !(std::cin) || start_x < 0 || start_x > 100){
+        std::cout << "Invalid Input, Enter start_x from 0 to 100";
+        std::cin.clear();
+        // https://stackoverflow.com/questions/25020129/cin-ignorenumeric-limitsstreamsizemax-n
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> start_x;
+    }
+
+    std::cout <<" Input the start_y \n";
+    std::cin >> start_y;
+
+    //If start_y is the range below 0 and more than 100, take the input again.
+    while( !(std::cin) || start_y < 0 || start_y > 100){
+        std::cout << "Invalid Input, Enter start_y from 0 to 100";
+        std::cin.clear();
+        // https://stackoverflow.com/questions/25020129/cin-ignorenumeric-limitsstreamsizemax-n
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> start_y;
+    }
+
+    std::cout << " Input the end_x \n";
+    std::cin >> end_x;
+    //If end_x is the range below 0 and more than 100, take the input again. 
+    while( !(std::cin) || end_x < 0 || end_x > 100){
+        std::cout << "Invalid Input, Enter end_x from 0 to 100";
+        std::cin.clear();
+        // https://stackoverflow.com/questions/25020129/cin-ignorenumeric-limitsstreamsizemax-n
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> end_x;
+    }
+
+    std::cout << " Input the end_y \n";
+    std::cin >> end_y;
+
+    while(!(std::cin) || end_y < 0 || end_y > 100){
+        std::cout << "Invalid Input, Enter end_y from 0 to 100";
+        std::cin.clear();
+        // https://stackoverflow.com/questions/25020129/cin-ignorenumeric-limitsstreamsizemax-n
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cin >> end_y;
+    }
+
     // Build Model.
     RouteModel model{osm_data};
 

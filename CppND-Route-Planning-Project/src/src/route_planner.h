@@ -13,14 +13,13 @@ class RoutePlanner {
     // Add public variables or methods declarations here.
     float GetDistance() const {return distance;}
     void AStarSearch();
-
-    // The following methods have been made public so we can test them individually.
-    void AddNeighbors(RouteModel::Node *current_node);
-    float CalculateHValue(RouteModel::Node const *node);
-    bool CompareFvals(const RouteModel::Node *node_a, const RouteModel::Node *node_b);
+    
     std::vector<RouteModel::Node> ConstructFinalPath(RouteModel::Node *);
+    float CalculateHValue(const RouteModel::Node *node);
     RouteModel::Node *NextNode();
-
+    static bool CompareFvals(const RouteModel::Node *node_a, const RouteModel::Node *node_b);
+    void AddNeighbors(RouteModel::Node *current_node);
+    
   private:
     // Add private variables or methods declarations here.
     std::vector<RouteModel::Node*> open_list;
@@ -29,6 +28,7 @@ class RoutePlanner {
 
     float distance = 0.0f;
     RouteModel &m_Model;
+    
 };
 
 #endif
