@@ -69,7 +69,7 @@ bool RouteModel::CompareFvals(RouteModel::Node *node_a, RouteModel::Node *node_b
 }
 
 
-// TODO 6: Complete the ConstructFinalPath method to return the final path found from your A* search.
+// Complete the ConstructFinalPath method to return the final path found from your A* search.
 // Tips:
 // - This method should take the current (final) node as an argument and iteratively follow the 
 //   chain of parents of nodes until the starting node is found.
@@ -82,8 +82,22 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     distance = 0.0f;
     std::vector<RouteModel::Node> path_found;
 
-    // TODO: Implement your solution here.
+    RouteModel::Node* cur_node = current_node;
 
+    //If the current node(parent) is empty or null
+    while(cur_node){
+        //Add the current node to the parent. 
+        path_found.push_back(*cur_node);
+
+        //if the currnet node is parent, add distance component to its parent.
+        if(cur_node->parent){
+            this->distance += cur_node->distance(*cur_node->parent);
+        }
+
+        //Then update the current node.
+        cur_node = cur_node->parent;
+    }
+    
     distance *= m_Model.MetricScale(); // Multiply the distance by the scale of the map to get meters.
     return path_found;
 
@@ -99,7 +113,7 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
 
 void RoutePlanner::AStarSearch() {
     RouteModel::Node *current_node = nullptr;
-
+    
     // TODO: Implement your solution here.
 
 }
