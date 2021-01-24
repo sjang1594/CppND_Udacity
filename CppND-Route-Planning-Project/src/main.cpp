@@ -54,10 +54,7 @@ int main(int argc, const char **argv)
     }
     
     //Declare floats 'start_x', 'start_y', 'end_x', 'end_y'
-    float start_x = 0.0f;
-    float start_y = 0.0f;
-    float end_x = 0.0f;
-    float end_y = 0.0f;
+    float start_x, start_y, end_x, end_y;
 
     std::cout <<" Taking User Inputs...\n";
     std::cout <<" Please enter : start_x, start_y, end_x, and end_y in order\n";
