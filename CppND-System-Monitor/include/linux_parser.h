@@ -55,11 +55,11 @@ std::string User(int pid);
 long int UpTime(int pid);
 
 enum ProcessCPUStates {
-  KUtime_ = 14,
-  kStime = 15,
+  kUtime_ = 14,
+  kStime_ = 15,
   kCutime_ = 16,
-  KCstime_ = 17,
-  kStarttime = 22
+  kCstime_ = 17,
+  kStarttime_ = 22
 };
 
 };  // namespace LinuxParser

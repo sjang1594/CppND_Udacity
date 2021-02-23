@@ -24,8 +24,8 @@ vector<Process>& System::Processes() {
     //read PIDs from file system.
     vector<int> processIds = LinuxParser::Pids();
     for (int p : processIds){
-        Process pid{p};
-        processFound.push_back(pid);
+        Process procs{p};
+        processFound.push_back(procs);
     }
 
     // after reading the all PIds, sort them out. you can use operator as well. 
