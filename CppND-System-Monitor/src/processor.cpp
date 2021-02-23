@@ -10,8 +10,10 @@ float Processor::Utilization() {
 
     // Add all float values in order to calculate the total cpu times after boot up.
     float totalCpuTime =
-        cpuVal[LinuxParser::kUser_] + cpuVal[LinuxParser::kNice_] + cpuVal[LinuxParser::kSystem_] + cpuVal[LinuxParser::kIdle_] +
-        cpuVal[LinuxParser::kIOwait_] + cpuVal[LinuxParser::kIRQ_] + cpuVal[LinuxParser::kSoftIRQ_] + cpuVal[LinuxParser::kSteal_];
+        cpuVal[LinuxParser::kUser_] + cpuVal[LinuxParser::kNice_] + 
+        cpuVal[LinuxParser::kSystem_] + cpuVal[LinuxParser::kIdle_] +
+        cpuVal[LinuxParser::kIOwait_] + cpuVal[LinuxParser::kIRQ_] + 
+        cpuVal[LinuxParser::kSoftIRQ_] + cpuVal[LinuxParser::kSteal_];
 
     // The CPU is idle when it's requesting IO handle comes in.
     float idleTime = cpuVal[LinuxParser::kIdle_] + cpuVal[LinuxParser::kIOwait_];

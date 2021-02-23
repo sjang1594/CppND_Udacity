@@ -12,7 +12,13 @@ using std::to_string;
 using std::vector;
 
 //Declare the constructor.
-Process::Process(int pid) : processId_(pid){};
+Process::Process(int pid) : processId_(pid){
+    calculateCpuUsage();
+    determineCommand();
+    determineRam();
+    determineUptime();
+    determineUser();
+};
 
 // Return this process's ID
 int Process::Pid() { return processId_; }
@@ -27,7 +33,7 @@ string Process::Command() { return command_; }
 string Process::Ram() { return ram_; }
 
 // Return the user (name) that generated this process
-string Process::User() { return userID_; }
+string Process::User() { return user_; }
 
 // Return the age of this process (in seconds)
 long int Process::UpTime() { return uptime_; }
